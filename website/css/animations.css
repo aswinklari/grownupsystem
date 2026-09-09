@@ -1,0 +1,178 @@
+/* ==========================================================================
+   GROWN UP SYSTEMS — animations.css
+   Subtle, professional micro-interactions. Additive only — does not
+   override existing button/card/nav styles, just adds motion polish.
+   Load LAST, after style.css, responsive.css, components.css, pages.css.
+   ========================================================================== */
+
+/* ---------- Global smoothing ---------- */
+.btn,
+.header-action,
+.division-switcher__option,
+.main-nav__list a,
+.category-card,
+.product-card,
+.brand-card,
+.card,
+.cart-item,
+.floating-contact__btn,
+input,
+select,
+textarea {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Button press feedback ---------- */
+.btn {
+  transform: translateY(0);
+  transition: background-color 150ms ease, box-shadow 150ms ease,
+              color 150ms ease, transform 100ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* ---------- Header action icons (cart/account) ---------- */
+.header-action {
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+.header-action:active {
+  transform: scale(0.94);
+}
+
+/* ---------- Cart badge pulse (triggered by JS when item added) ---------- */
+.header-action__badge {
+  transition: transform 150ms ease;
+}
+.header-action__badge.is-pulsing {
+  animation: badge-pulse 400ms ease;
+}
+@keyframes badge-pulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Card hover polish (adds smoothing on top of any existing lift) ---------- */
+.category-card,
+.product-card,
+.brand-card,
+.cart-item {
+  transition: box-shadow 200ms ease, transform 200ms ease, border-color 200ms ease;
+}
+
+/* ---------- Product image gentle zoom on card hover ---------- */
+.product-card__image-wrap img,
+.category-card img {
+  transition: transform 300ms ease;
+}
+.product-card:hover .product-card__image-wrap img,
+.category-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ---------- Add to Cart success feedback ---------- */
+.product-card__add,
+.qty-selector button {
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+.product-card__add:active,
+.qty-selector button:active {
+  transform: scale(0.95);
+}
+.product-card__add.is-added {
+  animation: add-success 500ms ease;
+}
+@keyframes add-success {
+  0%   { background-color: var(--color-primary); }
+  40%  { background-color: #1E8A5F; }
+  100% { background-color: var(--color-primary); }
+}
+
+/* ---------- Form field focus ---------- */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 100ms ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  transform: translateY(-1px);
+}
+
+/* ---------- Mobile nav open/close ---------- */
+.main-nav {
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .main-nav {
+    max-height: 0;
+    transition: max-height 250ms ease;
+  }
+  .main-nav.is-open {
+    max-height: 600px;
+  }
+}
+
+/* ---------- Division switcher underline ---------- */
+.division-switcher__option {
+  position: relative;
+}
+.division-switcher__option::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 200ms ease;
+}
+.division-switcher__option:hover::after,
+.division-switcher__option.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Floating contact buttons ---------- */
+.floating-contact__btn {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.floating-contact__btn:active {
+  transform: scale(0.92);
+}
+
+/* ---------- Page content fade-in on load ---------- */
+main {
+  animation: page-fade-in 300ms ease;
+}
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Toast (if/when used) ---------- */
+.toast {
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .btn:hover,
+  .btn:active,
+  .header-action:active,
+  .product-card__image-wrap img,
+  .category-card img,
+  .form-group input:focus,
+  main {
+    transform: none !important;
+  }
+}

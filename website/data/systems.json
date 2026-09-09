@@ -1,0 +1,164 @@
+{
+  "division": {
+    "id": "systems",
+    "name": "Grown Up Systems",
+    "tagline": "Technology & IT Solutions"
+  },
+
+  "categories": [
+    {
+      "slug": "printers",
+      "name": "Printers",
+      "image": "images/systems/categories/printers.jpg"
+    },
+    {
+      "slug": "ups-systems",
+      "name": "UPS Systems",
+      "image": "images/systems/categories/ups.jpg"
+    },
+    {
+      "slug": "computers",
+      "name": "Computers",
+      "image": "images/systems/categories/computers.jpg"
+    },
+    {
+      "slug": "networking",
+      "name": "Networking",
+      "image": "images/systems/categories/networking.jpg"
+    },
+    {
+      "slug": "accessories",
+      "name": "Accessories",
+      "image": "images/systems/categories/accessories.jpg"
+    },
+    {
+      "slug": "it-solutions",
+      "name": "IT Solutions",
+      "image": "images/systems/categories/it-solutions.jpg"
+    }
+  ],
+
+  "brands": [
+    { "slug": "dell", "name": "Dell", "logo": "images/systems/brands/dell.png" },
+    { "slug": "hp", "name": "HP", "logo": "images/systems/brands/hp.png" },
+    { "slug": "epson", "name": "Epson", "logo": "images/systems/brands/epson.png" },
+    { "slug": "lenovo", "name": "Lenovo", "logo": "images/systems/brands/lenovo.png" },
+    { "slug": "acer", "name": "Acer", "logo": "images/systems/brands/acer.png" },
+    { "slug": "posiflex", "name": "Posiflex", "logo": "images/systems/brands/posiflex.png" }
+  ],
+
+  "products": [
+    {
+      "id": "1",
+      "name": "Brother HL-2321D Compact, High Speed Laser Printer with Duplex",
+      "slug": "brother-hl-2321d-compact-high-speed-laser-printer-with-duplex",
+      "brand": "Brother",
+      "category": "printers",
+      "shortDescription": "PLACEHOLDER - short description not yet provided",
+      "description": "PLACEHOLDER - full description not yet provided",
+      "price": 9100,
+      "mrp": 10500,
+      "discount": 13.33,
+      "image": "images/systems/products/PLACEHOLDER-brother-hl-2321d.jpg",
+      "images": [
+        "images/systems/products/PLACEHOLDER-brother-hl-2321d.jpg"
+      ],
+      "sku": "PLACEHOLDER-SKU-001",
+      "stock": null,
+      "featured": true,
+      "specifications": {
+        "note": "PLACEHOLDER - specifications not yet provided"
+      }
+    },
+    {
+      "id": "2",
+      "name": "LUMINOUS Regalia F3200 Li-ion battery UPS",
+      "slug": "luminous-regalia-f3200-li-ion-battery-ups",
+      "brand": "Luminous",
+      "category": "ups-systems",
+      "shortDescription": "PLACEHOLDER - short description not yet provided",
+      "description": "PLACEHOLDER - full description not yet provided",
+      "price": 155000,
+      "mrp": 224990,
+      "discount": 31.11,
+      "image": "images/systems/products/PLACEHOLDER-luminous-regalia-f3200.jpg",
+      "images": [
+        "images/systems/products/PLACEHOLDER-luminous-regalia-f3200.jpg"
+      ],
+      "sku": "PLACEHOLDER-SKU-002",
+      "stock": null,
+      "featured": true,
+      "specifications": {
+        "note": "PLACEHOLDER - specifications not yet provided"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Epson C11CC83411 M205 Printer",
+      "slug": "epson-c11cc83411-m205-printer",
+      "brand": "Epson",
+      "category": "printers",
+      "shortDescription": "PLACEHOLDER - short description not yet provided",
+      "description": "PLACEHOLDER - full description not yet provided",
+      "price": 0,
+      "mrp": 12996,
+      "discount": 100,
+      "image": "images/systems/products/PLACEHOLDER-epson-m205.jpg",
+      "images": [
+        "images/systems/products/PLACEHOLDER-epson-m205.jpg"
+      ],
+      "sku": "PLACEHOLDER-SKU-003",
+      "stock": null,
+      "featured": false,
+      "specifications": {
+        "note": "PLACEHOLDER - specifications not yet provided. PRICE FLAGGED: source data shows price as 0 / 100% off, which appears to be a data error, not a real promotion. Verify before publishing."
+      }
+    },
+    {
+      "id": "4",
+      "name": "EPSON LX1310 Single Function Color Matrix Printer",
+      "slug": "epson-lx1310-single-function-color-matrix-printer",
+      "brand": "Epson",
+      "category": "printers",
+      "shortDescription": "PLACEHOLDER - short description not yet provided",
+      "description": "PLACEHOLDER - full description not yet provided",
+      "price": 16500,
+      "mrp": 20999,
+      "discount": 21.42,
+      "image": "images/systems/products/PLACEHOLDER-epson-lx1310.jpg",
+      "images": [
+        "images/systems/products/PLACEHOLDER-epson-lx1310.jpg"
+      ],
+      "sku": "PLACEHOLDER-SKU-004",
+      "stock": null,
+      "featured": true,
+      "specifications": {
+        "note": "PLACEHOLDER - specifications not yet provided"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Epson C11CD82501 L1800 All In One Printer",
+      "slug": "epson-c11cd82501-l1800-all-in-one-printer",
+      "brand": "Epson",
+      "category": "printers",
+      "shortDescription": "PLACEHOLDER - short description not yet provided",
+      "description": "PLACEHOLDER - full description not yet provided",
+      "price": 0,
+      "mrp": 32899,
+      "discount": 100,
+      "image": "images/systems/products/PLACEHOLDER-epson-l1800.jpg",
+      "images": [
+        "images/systems/products/PLACEHOLDER-epson-l1800.jpg"
+      ],
+      "sku": "PLACEHOLDER-SKU-005",
+      "stock": null,
+      "featured": false,
+      "specifications": {
+        "note": "PLACEHOLDER - specifications not yet provided. PRICE FLAGGED: source data shows price as 0 / 100% off, which appears to be a data error, not a real promotion. Verify before publishing."
+      }
+    }
+  ],
+
+  "testimonials": []
+}

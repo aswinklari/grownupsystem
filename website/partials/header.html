@@ -1,0 +1,100 @@
+<header class="site-header" id="siteHeader">
+
+  <!-- Top utility bar -->
+  <div class="utility-bar">
+    <div class="container utility-bar__inner">
+      <ul class="utility-bar__contact">
+        <li>
+          <a href="tel:+919846302700" aria-label="Call Grown Up Systems">
+            <span class="icon" aria-hidden="true">&#128222;</span>
+            +91-9846302700
+          </a>
+        </li>
+        <li>
+          <a href="mailto:grownupsystem@gmail.com" aria-label="Email Grown Up Systems">
+            <span class="icon" aria-hidden="true">&#9993;</span>
+            grownupsystem@gmail.com
+          </a>
+        </li>
+        <li>
+          <span class="icon" aria-hidden="true">&#128205;</span>
+          Kottakkal, Kerala
+        </li>
+      </ul>
+            <div class="division-switcher" id="divisionSwitcher">
+        <a href="index.html" class="division-switcher__option" data-division-link="systems">Grown Up Systems</a>
+        <span class="division-switcher__sep" aria-hidden="true">|</span>
+        <a href="energy.html" class="division-switcher__option" data-division-link="energy">Grown Up Energy</a>
+      </div>
+      <ul class="utility-bar__links">
+        <li><a href="contact.html?topic=track-order" id="trackOrderLink">Track Order</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main header: logo, search, cart, account -->
+  <div class="main-header">
+    <div class="container main-header__inner">
+
+      <a href="index.html" class="main-header__logo" aria-label="Grown Up Systems Home">
+        <img
+          src="https://image1.jdomni.in/storeLogo/26092023/E2/73/4F/5DE911707F95C12D0E03E3D6E9_1695704293948.png?output-format=webp"
+          alt="Grown Up Systems Logo"
+          width="183"
+          height="95">
+      </a>
+
+      <div class="main-header__search">
+        <form role="search" action="products.html" method="get" id="siteSearchForm">
+          <label for="siteSearchInput" class="visually-hidden">Search products</label>
+          <input
+            type="text"
+            id="siteSearchInput"
+            name="q"
+            placeholder="Search for printers, UPS, computers, accessories..."
+            autocomplete="off">
+          <button type="submit" aria-label="Search">
+            <span class="icon" aria-hidden="true">&#128269;</span>
+            <span class="btn-text">Search</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="main-header__actions">
+        <a href="cart.html" class="header-action" id="cartLink" aria-label="View cart">
+          <span class="icon" aria-hidden="true">&#128722;</span>
+          <span class="header-action__label">Cart</span>
+          <span class="header-action__badge" id="cartCount" hidden>0</span>
+        </a>
+        <a href="login.html" class="header-action" id="accountLink" aria-label="Login or view account">
+          <span class="icon" aria-hidden="true">&#128100;</span>
+          <span class="header-action__label">Account</span>
+        </a>
+      </div>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Main navigation -->
+  <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+    <div class="container">
+      <ul class="main-nav__list">
+        <li><a href="index.html" data-nav="home">Home</a></li>
+        <li><a href="categories.html" data-nav="categories">Categories</a></li>
+        <li><a href="products.html" data-nav="products">Products</a></li>
+        <li><a href="brands.html" data-nav="brands">Brands</a></li>
+        <li><a href="about.html" data-nav="about">About Us</a></li>
+        <li><a href="gallery.html" data-nav="gallery">Gallery</a></li>
+        <li><a href="testimonials.html" data-nav="testimonials">Testimonials</a></li>
+        <li><a href="contact.html" data-nav="contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>

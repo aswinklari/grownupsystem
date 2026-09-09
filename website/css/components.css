@@ -1,0 +1,167 @@
+/* ==========================================================================
+   GROWN UP SYSTEMS — components.css
+   Reusable UI components used across multiple pages.
+   Load AFTER style.css and responsive.css.
+   ========================================================================== */
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge--success { background-color: #E4F6EC; color: #1E8A5F; }
+.badge--warning { background-color: #FFF3DE; color: #B36B00; }
+.badge--error   { background-color: #FBE8E5; color: #C6402D; }
+.badge--info    { background-color: #E7ECF5; color: var(--color-primary); }
+
+/* ---------- Breadcrumbs ---------- */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: var(--space-sm) 0;
+}
+.breadcrumbs a { color: var(--color-text-secondary); }
+.breadcrumbs a:hover { color: var(--color-primary); }
+.breadcrumbs .sep { color: var(--color-border); }
+
+/* ---------- Cards (generic) ---------- */
+.card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-md);
+}
+
+/* ---------- Forms ---------- */
+.form-group { margin-bottom: var(--space-sm); }
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(16,42,67,0.10);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-error {
+  color: #C6402D;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* ---------- Quantity selector ---------- */
+.qty-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.qty-selector button {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-bg-light);
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.qty-selector button:hover { background-color: var(--color-border); }
+.qty-selector input {
+  width: 44px;
+  height: 36px;
+  border: none;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ---------- Empty states ---------- */
+.empty-state {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  color: var(--color-text-secondary);
+}
+.empty-state h3 { color: var(--color-text); margin-bottom: var(--space-xs); }
+
+/* ---------- Loading skeleton ---------- */
+.skeleton {
+  background: linear-gradient(90deg, var(--color-bg-light) 25%, var(--color-border) 37%, var(--color-bg-light) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
+@keyframes skeleton-loading {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}
+
+/* ---------- Toast / notification ---------- */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--color-text);
+  color: var(--color-white);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease;
+  z-index: 500;
+}
+.toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------- Filter sidebar (for products listing) ---------- */
+.filter-panel {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.filter-panel h4 { font-size: 14px; margin-bottom: var(--space-xs); }
+.filter-panel .filter-group { margin-bottom: var(--space-md); }
+.filter-panel .filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  padding: 4px 0;
+}
