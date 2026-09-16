@@ -1,0 +1,42 @@
+[
+  {
+    "image": "images/gallery/store-printers.jpg",
+    "title": "Printer & Ink Products",
+    "category": "Store"
+  },
+  {
+    "image": "images/gallery/store-accessories.jpg",
+    "title": "IT & Billing Accessories",
+    "category": "Store"
+  },
+  {
+    "image": "images/gallery/bajaj-products.jpg",
+    "title": "Bajaj Home & Electrical Products",
+    "category": "Products"
+  },
+  {
+    "image": "images/gallery/storefront.jpg",
+    "title": "Grown Up Systems Store",
+    "category": "Store"
+  },
+  {
+    "image": "images/gallery/luminous-products.jpg",
+    "title": "Luminous UPS & Power Solutions",
+    "category": "Power"
+  },
+  {
+    "image": "images/gallery/solar-panels.jpg",
+    "title": "Solar Panel Stock",
+    "category": "Solar"
+  },
+  {
+    "image": "images/gallery/luminous-stock.jpg",
+    "title": "Luminous Product Inventory",
+    "category": "Power"
+  },
+  {
+    "image": "images/gallery/solar-panel.jpg",
+    "title": "Solar Energy Solutions",
+    "category": "Solar"
+  }
+]
