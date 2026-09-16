@@ -1,13 +1,16 @@
 /* ==========================================================================
    GROWN UP SYSTEMS — main.js
    Core site behavior: mobile nav toggle, footer year, homepage
-   category/product/brand/testimonial rendering from data/products.json.
+   category/product/brand rendering from division data,
+   and testimonials from data/testimonials.json.
    ========================================================================== */
 
 const DIVISION_DATA_FILES = {
   systems: 'data/systems.json',
   energy: 'data/energy.json'
 };
+
+const TESTIMONIALS_DATA_FILE = 'data/testimonials.json';
 
 document.addEventListener('partialsLoaded', () => {
 
@@ -61,18 +64,25 @@ async function loadHomepageData() {
 
   try {
     const response = await fetch(dataFile);
-    if (!response.ok) throw new Error(`Failed to load ${dataFile}`);
-    const data = await response.json();
+if (!response.ok) throw new Error(`Failed to load ${dataFile}`);
 
-    if (categoryGrid) renderCategories(categoryGrid, data.categories || []);
-    if (featuredGrid) renderFeaturedProducts(featuredGrid, data.products || []);
-    if (brandStrip) renderBrands(brandStrip, data.brands || []);
-    if (testimonialsGrid) renderTestimonials(testimonialsGrid, data.testimonials || []);
-  } catch (err) {
-    console.error('Error loading homepage data:', err);
-    if (categoryGrid) categoryGrid.innerHTML = '<p class="placeholder-note">Unable to load categories right now.</p>';
-    if (featuredGrid) featuredGrid.innerHTML = '<p class="placeholder-note">Unable to load products right now.</p>';
+const data = await response.json();
+
+if (categoryGrid) renderCategories(categoryGrid, data.categories || []);
+if (featuredGrid) renderFeaturedProducts(featuredGrid, data.products || []);
+if (brandStrip) renderBrands(brandStrip, data.brands || []);
+
+if (testimonialsGrid) {
+  const testimonialResponse = await fetch(TESTIMONIALS_DATA_FILE);
+
+  if (!testimonialResponse.ok) {
+    throw new Error(`Failed to load ${TESTIMONIALS_DATA_FILE}`);
   }
+
+  const testimonials = await testimonialResponse.json();
+
+  renderTestimonials(testimonialsGrid, testimonials);
+}
 }
 
 function renderCategories(container, categories) {
