@@ -198,10 +198,12 @@ function renderTestimonials(container, testimonials) {
   }
 
   container.innerHTML = testimonials.map(t => {
-    const rating = Math.min(
-      5,
-      Math.max(0, Number(t.rating) || 0)
-    );
+  const rating = Math.round(
+  Math.min(
+    5,
+    Math.max(0, Number(t.rating) || 0)
+  )
+);
 
     const stars =
       '★'.repeat(rating) +
