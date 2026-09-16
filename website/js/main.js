@@ -139,18 +139,44 @@ function productCardHTML(p) {
   `;
 }
 
-function renderBrands(container, brands) {
-  if (!brands.length) {
-    container.innerHTML = '<p class="placeholder-note">No brands available yet.</p>';
+function renderTestimonials(container, testimonials) {
+  if (!testimonials.length) {
+    container.innerHTML =
+      '<p class="placeholder-note">No testimonials available yet.</p>';
     return;
   }
-  container.innerHTML = brands.map(b => `
-    <a href="products.html?brand=${encodeURIComponent(b.slug)}" aria-label="${escapeAttr(b.name)}">
-      <img src="${escapeAttr(b.logo)}" alt="${escapeAttr(b.name)}" loading="lazy">
-    </a>
-  `).join('');
-}
 
+  container.innerHTML = testimonials.map(t => {
+    const rating = Math.min(5, Math.max(0, Number(t.rating) || 0));
+
+    const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+    return `
+      <article class="testimonial-card">
+
+        <div class="testimonial-card__rating"
+             aria-label="${rating} out of 5 stars">
+          ${stars}
+        </div>
+
+        <p class="testimonial-card__quote">
+          &ldquo;${escapeHtml(t.text)}&rdquo;
+        </p>
+
+        <p class="testimonial-card__author">
+          ${escapeHtml(t.name)}
+        </p>
+
+        ${t.company ? `
+          <p class="testimonial-card__company">
+            ${escapeHtml(t.company)}
+          </p>
+        ` : ''}
+
+      </article>
+    `;
+  }).join('');
+}
 function renderTestimonials(container, testimonials) {
   if (!testimonials.length) {
     container.innerHTML = '<p class="placeholder-note">No testimonials available yet.</p>';
