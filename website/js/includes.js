@@ -96,3 +96,16 @@ function applyActiveDivision() {
     }
   });
 }
+function setupFavicon() {
+  if (document.querySelector('link[rel="icon"]')) {
+    return;
+  }
+
+  const favicon = document.createElement('link');
+
+  favicon.rel = 'icon';
+  favicon.type = 'image/jpeg';
+  favicon.href = 'images/grownuplogo.jpg';
+
+  document.head.appendChild(favicon);
+}
