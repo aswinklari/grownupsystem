@@ -187,7 +187,28 @@ function productCardHTML(p) {
     </div>
   `;
 }
+function renderBrands(container, brands) {
+  if (!brands.length) {
+    container.innerHTML =
+      '<p class="placeholder-note">No brands available yet.</p>';
+    return;
+  }
 
+  container.innerHTML = brands.map(brand => `
+    <a
+      class="brand-card"
+      href="products.html?brand=${encodeURIComponent(brand.slug)}">
+
+      <img
+        src="${escapeAttr(brand.logo)}"
+        alt="${escapeAttr(brand.name)}"
+        loading="lazy">
+
+      <span>${escapeHtml(brand.name)}</span>
+
+    </a>
+  `).join('');
+}
 function renderTestimonials(container, testimonials) {
   if (!testimonials.length) {
     container.innerHTML =
