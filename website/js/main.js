@@ -11,7 +11,6 @@ const DIVISION_DATA_FILES = {
 };
 
 const TESTIMONIALS_DATA_FILE = 'data/testimonials.json';
-const GALLERY_DATA_FILE = 'data/gallery.json';
 
 document.addEventListener('partialsLoaded', () => {
 
