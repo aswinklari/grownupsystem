@@ -52,37 +52,88 @@ async function loadHomepageData() {
   const testimonialsGrid = document.getElementById('testimonialsGrid');
 
   // Only fetch if at least one target container exists on this page
-  if (!categoryGrid && !featuredGrid && !brandStrip && !testimonialsGrid) return;
+  if (!categoryGrid && !featuredGrid && !brandStrip && !testimonialsGrid) {
+    return;
+  }
 
   const division = document.body.getAttribute('data-division') || 'systems';
   const dataFile = DIVISION_DATA_FILES[division];
 
   if (!dataFile) {
-    console.error(`main.js: Unknown data-division="${division}". No matching data file configured.`);
+    console.error(
+      `main.js: Unknown data-division="${division}". No matching data file configured.`
+    );
     return;
   }
 
   try {
+    /* ---------- Load division data ---------- */
     const response = await fetch(dataFile);
-if (!response.ok) throw new Error(`Failed to load ${dataFile}`);
 
-const data = await response.json();
+    if (!response.ok) {
+      throw new Error(`Failed to load ${dataFile}`);
+    }
 
-if (categoryGrid) renderCategories(categoryGrid, data.categories || []);
-if (featuredGrid) renderFeaturedProducts(featuredGrid, data.products || []);
-if (brandStrip) renderBrands(brandStrip, data.brands || []);
+    const data = await response.json();
 
-if (testimonialsGrid) {
-  const testimonialResponse = await fetch(TESTIMONIALS_DATA_FILE);
+    if (categoryGrid) {
+      renderCategories(categoryGrid, data.categories || []);
+    }
 
-  if (!testimonialResponse.ok) {
-    throw new Error(`Failed to load ${TESTIMONIALS_DATA_FILE}`);
+    if (featuredGrid) {
+      renderFeaturedProducts(featuredGrid, data.products || []);
+    }
+
+    if (brandStrip) {
+      renderBrands(brandStrip, data.brands || []);
+    }
+
+    /* ---------- Load testimonials separately ---------- */
+    if (testimonialsGrid) {
+      const testimonialResponse =
+        await fetch(TESTIMONIALS_DATA_FILE);
+
+      if (!testimonialResponse.ok) {
+        throw new Error(
+          `Failed to load ${TESTIMONIALS_DATA_FILE}`
+        );
+      }
+
+      const testimonials =
+        await testimonialResponse.json();
+
+      renderTestimonials(
+        testimonialsGrid,
+        testimonials
+      );
+    }
+
+  } catch (err) {
+    console.error(
+      'Error loading homepage data:',
+      err
+    );
+
+    if (categoryGrid) {
+      categoryGrid.innerHTML =
+        '<p class="placeholder-note">Unable to load categories right now.</p>';
+    }
+
+    if (featuredGrid) {
+      featuredGrid.innerHTML =
+        '<p class="placeholder-note">Unable to load products right now.</p>';
+    }
+
+    if (brandStrip) {
+      brandStrip.innerHTML =
+        '<p class="placeholder-note">Unable to load brands right now.</p>';
+    }
+
+    if (testimonialsGrid) {
+      testimonialsGrid.innerHTML =
+        '<p class="placeholder-note">Unable to load testimonials right now.</p>';
+    }
   }
-
-  const testimonials = await testimonialResponse.json();
-
-  renderTestimonials(testimonialsGrid, testimonials);
-}
 }
 
 function renderCategories(container, categories) {
@@ -147,15 +198,21 @@ function renderTestimonials(container, testimonials) {
   }
 
   container.innerHTML = testimonials.map(t => {
-    const rating = Math.min(5, Math.max(0, Number(t.rating) || 0));
+    const rating = Math.min(
+      5,
+      Math.max(0, Number(t.rating) || 0)
+    );
 
-    const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+    const stars =
+      '★'.repeat(rating) +
+      '☆'.repeat(5 - rating);
 
     return `
       <article class="testimonial-card">
 
-        <div class="testimonial-card__rating"
-             aria-label="${rating} out of 5 stars">
+        <div
+          class="testimonial-card__rating"
+          aria-label="${rating} out of 5 stars">
           ${stars}
         </div>
 
@@ -176,18 +233,6 @@ function renderTestimonials(container, testimonials) {
       </article>
     `;
   }).join('');
-}
-function renderTestimonials(container, testimonials) {
-  if (!testimonials.length) {
-    container.innerHTML = '<p class="placeholder-note">No testimonials available yet.</p>';
-    return;
-  }
-  container.innerHTML = testimonials.map(t => `
-    <div class="testimonial-card">
-      <p class="testimonial-card__quote">&ldquo;${escapeHtml(t.quote)}&rdquo;</p>
-      <p class="testimonial-card__author">${escapeHtml(t.author)}</p>
-    </div>
-  `).join('');
 }
 
 /* ---------- Utilities ---------- */
