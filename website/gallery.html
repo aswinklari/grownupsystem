@@ -66,16 +66,131 @@ technology solutions and work.
 <div class="container">
 
 
+<!-- Gallery filters -->
+
+<div
+class="gallery-filters"
+id="galleryFilters">
+
+<button
+type="button"
+class="gallery-filter is-active"
+data-filter="all">
+
+All
+
+</button>
+
+<button
+type="button"
+class="gallery-filter"
+data-filter="Store">
+
+Store
+
+</button>
+
+<button
+type="button"
+class="gallery-filter"
+data-filter="Products">
+
+Products
+
+</button>
+
+<button
+type="button"
+class="gallery-filter"
+data-filter="Power">
+
+Power
+
+</button>
+
+<button
+type="button"
+class="gallery-filter"
+data-filter="Solar">
+
+Solar
+
+</button>
+
+</div>
+
+
+
+<!-- Gallery -->
+
 <div
 class="gallery-grid"
 id="galleryGrid">
 
+<p class="placeholder-note">
 
-<div class="gallery-placeholder">
+Loading gallery...
 
-Gallery images will be added here.
+</p>
 
 </div>
+
+
+<!-- Lightbox -->
+
+<div
+class="gallery-lightbox"
+id="galleryLightbox"
+hidden
+aria-hidden="true">
+
+
+<button
+type="button"
+class="gallery-lightbox__close"
+id="galleryLightboxClose"
+aria-label="Close image">
+
+&times;
+
+</button>
+
+
+<button
+type="button"
+class="gallery-lightbox__prev"
+id="galleryLightboxPrev"
+aria-label="Previous image">
+
+&#10094;
+
+</button>
+
+
+<div class="gallery-lightbox__content">
+
+<img
+id="galleryLightboxImage"
+src=""
+alt="">
+
+
+<p
+id="galleryLightboxCaption">
+</p>
+
+</div>
+
+
+<button
+type="button"
+class="gallery-lightbox__next"
+id="galleryLightboxNext"
+aria-label="Next image">
+
+&#10095;
+
+</button>
 
 
 </div>
@@ -93,9 +208,13 @@ Gallery images will be added here.
 
 
 <script src="js/includes.js" defer></script>
+
 <script src="js/image-fallback.js" defer></script>
+
 <script src="js/main.js" defer></script>
+
 <script src="js/animations.js" defer></script>
+
 
 </body>
 
